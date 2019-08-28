@@ -21,7 +21,7 @@ spec:
       containers:
       - args:
         - -e
-        image: blacktop/filebeat:7.0.0
+        image: arnoldjohn123/filebeat:7.0.0
         name: filebeat
         resources: {}
         volumeMounts:
