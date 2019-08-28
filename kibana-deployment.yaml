@@ -18,7 +18,7 @@ spec:
         io.kompose.service: kibana
     spec:
       containers:
-      - image: blacktop/kibana:7.0
+      - image: arnold123/kibana:7.0
         name: kibana
         ports:
         - containerPort: 5601
