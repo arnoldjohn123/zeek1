@@ -18,7 +18,7 @@ spec:
         io.kompose.service: elasticsearch
     spec:
       containers:
-      - image: arnoldjohn123/elasticsearch:7.0
+      - image: blacktop/elasticsearch:7.0
         name: elasticsearch
         ports:
         - containerPort: 9200
