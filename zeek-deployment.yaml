@@ -33,6 +33,19 @@ spec:
         volumeMounts:
         - mountPath: /pcap
           name: zeek-claim0
+      containers:
+      - image: blacktop/elasticsearch:7.0
+        name: elasticsearch
+        ports:
+        - containerPort: 9200
+        resources: {}
+      containers:
+      - image: blacktop/kibana:7.0
+        name: kibana
+        ports:
+        - containerPort: 5601
+        resources: {}
+       
       restartPolicy: Always
       volumes:
       - name: zeek-claim0
