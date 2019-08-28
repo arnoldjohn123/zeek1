@@ -23,7 +23,7 @@ spec:
         - -i
         - af_packet::eth0
         - local
-        image: arnoldjohn123/zeek:elastic
+        image: blacktop/zeek:elastic
         name: zeek
         resources: {}
         securityContext:
