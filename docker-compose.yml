@@ -95,6 +95,17 @@ items:
           - mountPath: /pcap
             name: filebeat-claim0
         restartPolicy: Always
+	storageClassName: local-storage
+	local:
+	  path: /home/arnold/pcap
+        nodeAffinity:
+          required:
+            nodeSelectorTerms:
+      	    - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - example-node
         volumes:
         - name: filebeat-claim0
           persistentVolumeClaim:
@@ -110,6 +121,8 @@ items:
   spec:
     accessModes:
     - ReadWriteOnce
+    hostPath: 
+      Path: "/tmp/data"
     resources:
       requests:
         storage: 100Mi
@@ -172,9 +185,18 @@ items:
           securityContext:
             capabilities:
               add:
-              - NET_RAW
-          volumeMounts:
-          - mountPath: /pcap
+              - NET_RA
+	storageClassName: local-storage
+	local:
+	  path: /home/arnold/pcap
+        nodeAffinity:
+          required:
+            nodeSelectorTerms:
+      	    - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - example-node
             name: zeek-claim0
         restartPolicy: Always
         volumes:
@@ -187,6 +209,7 @@ items:
   metadata:
     creationTimestamp: null
     labels:
+      type: local
       io.kompose.service: zeek-claim0
     name: zeek-claim0
   spec:
@@ -195,6 +218,8 @@ items:
     resources:
       requests:
         storage: 100Mi
+    hostPath: 
+      Path: "/tmp/data"
   status: {}
 kind: List
 metadata: {}
