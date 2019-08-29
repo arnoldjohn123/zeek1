@@ -91,10 +91,7 @@ items:
           image: blacktop/filebeat:7.0.0
           name: filebeat
           resources: {}
-          volumeMounts:
-          - mountPath: /pcap
-            name: filebeat-claim0
-        restartPolicy: Always
+          restartPolicy: Always
 	storageClassName: local-storage
 	local:
 	  path: /home/arnold/pcap
@@ -121,7 +118,7 @@ items:
   spec:
     accessModes:
     - ReadWriteOnce
-    hostPath: 
+    hostPath:
       Path: "/tmp/data"
     resources:
       requests:
@@ -218,7 +215,7 @@ items:
     resources:
       requests:
         storage: 100Mi
-    hostPath: 
+    hostPath:
       Path: "/tmp/data"
   status: {}
 kind: List
