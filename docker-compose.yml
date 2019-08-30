@@ -91,17 +91,9 @@ items:
           image: blacktop/filebeat:7.0.0
           name: filebeat
           resources: {}
-          storageClassName: local-storage
-          local:
-            path: /home/arnold/pcap
-          nodeAffinity:
-            required:
-              nodeSelectorTerms:
-              - matchExpressions:
-                - key: kubernetes.io/hostname
-                  operator: In
-                  values:
-                  - example-node
+          volumeMounts:
+          - mountPath: /etc/config
+            name: filebeat-claim0
         restartPolicy: Always
         volumes:
         - name: filebeat-claim0
@@ -118,8 +110,6 @@ items:
   spec:
     accessModes:
     - ReadWriteOnce
-    hostPath:
-      Path: "/tmp/data"
     resources:
       requests:
         storage: 100Mi
@@ -183,17 +173,9 @@ items:
             capabilities:
               add:
               - NET_RAW
-        storageClassName: local-storage
-          local:
-            path: /home/arnold/pcap
-          nodeAffinity:
-            required:
-              nodeSelectorTerms:
-                - matchExpressions:
-                    - key: kubernetes.io/hostname
-                      operator: In
-                      values:
-                        - example-node
+          volumeMounts:
+          - mountPath: /etc/config
+            name: zeek-claim0
         restartPolicy: Always
         volumes:
         - name: zeek-claim0
@@ -213,8 +195,6 @@ items:
     resources:
       requests:
         storage: 100Mi
-      hostPath:
-        Path: "/tmp/data"
   status: {}
 kind: List
 metadata: {}
