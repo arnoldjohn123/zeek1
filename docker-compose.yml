@@ -99,7 +99,7 @@ items:
         volumes:
         - name: filebeat-claim0
           persistentVolumeClaim:
-            claimName: filebeat-claim0
+            #claimName: filebeat-claim0
           configMap:
         # Provide the name of the ConfigMap containing the files you want
         # to add to the container
@@ -187,7 +187,7 @@ items:
         volumes:
         - name: zeek-claim0
           persistentVolumeClaim:
-            claimName: zeek-claim0
+            #claimName: zeek-claim0
           configMap:
         # Provide the name of the ConfigMap containing the files you want
         # to add to the container
