@@ -100,7 +100,7 @@ items:
         - name: filebeat-claim0
           #persistentVolumeClaim:
           #claimName: filebeat-claim0
-          configMap:
+            configMap:
         # Provide the name of the ConfigMap containing the files you want
         # to add to the container
               name: special-config
@@ -188,10 +188,10 @@ items:
         - name: zeek-claim0
           #persistentVolumeClaim:
             #claimName: zeek-claim0
-          configMap:
+            configMap:
         # Provide the name of the ConfigMap containing the files you want
         # to add to the container
-            name: special-config
+              name: special-config
   status: {}
 - apiVersion: v1
   kind: PersistentVolumeClaim
