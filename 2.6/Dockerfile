@@ -74,8 +74,8 @@ COPY --from=builder /usr/local/bro /usr/local/bro
 COPY local.bro /usr/local/share/bro/site/local.zeek
 
 # Add a few zeek scripts
-#ADD https://raw.githubusercontent.com/blacktop/docker-zeek/master/scripts/conn-add-geodata.bro /usr/local/bro/share/bro/site/geodata/conn-add-geodata.zeek
-#ADD https://raw.githubusercontent.com/blacktop/docker-zeek/master/scripts/log-passwords.bro /usr/local/bro/share/bro/site/passwords/log-passwords.zeek
+ADD https://raw.githubusercontent.com/blacktop/docker-zeek/master/scripts/conn-add-geodata.bro /usr/local/bro/share/bro/site/geodata/conn-add-geodata.zeek
+ADD https://raw.githubusercontent.com/blacktop/docker-zeek/master/scripts/log-passwords.bro /usr/local/bro/share/bro/site/passwords/log-passwords.zeek
 
 WORKDIR home/arnold/pcap
 
