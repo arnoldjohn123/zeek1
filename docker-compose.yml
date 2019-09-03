@@ -4,7 +4,7 @@ items:
   kind: Service
   metadata:
     annotations:
-      kompose.cmd: kompose convert -f docker-compose.live.yml -o simple.yml
+      kompose.cmd: kompose convert -f docker-compose.live.yml -o docker-compose.yml
       kompose.version: 1.18.0 (06a2e56)
     creationTimestamp: null
     labels:
@@ -23,7 +23,7 @@ items:
   kind: Service
   metadata:
     annotations:
-      kompose.cmd: kompose convert -f docker-compose.live.yml -o simple.yml
+      kompose.cmd: kompose convert -f docker-compose.live.yml -o docker-compose.yml
       kompose.version: 1.18.0 (06a2e56)
     creationTimestamp: null
     labels:
@@ -42,7 +42,7 @@ items:
   kind: Deployment
   metadata:
     annotations:
-      kompose.cmd: kompose convert -f docker-compose.live.yml -o simple.yml
+      kompose.cmd: kompose convert -f docker-compose.live.yml -o docker-compose.yml
       kompose.version: 1.18.0 (06a2e56)
     creationTimestamp: null
     labels:
@@ -69,7 +69,7 @@ items:
   kind: Deployment
   metadata:
     annotations:
-      kompose.cmd: kompose convert -f docker-compose.live.yml -o simple.yml
+      kompose.cmd: kompose convert -f docker-compose.live.yml -o docker-compose.yml
       kompose.version: 1.18.0 (06a2e56)
     creationTimestamp: null
     labels:
@@ -124,7 +124,7 @@ items:
   kind: Deployment
   metadata:
     annotations:
-      kompose.cmd: kompose convert -f docker-compose.live.yml -o simple.yml
+      kompose.cmd: kompose convert -f docker-compose.live.yml -o docker-compose.yml
       kompose.version: 1.18.0 (06a2e56)
     creationTimestamp: null
     labels:
@@ -151,7 +151,7 @@ items:
   kind: Deployment
   metadata:
     annotations:
-      kompose.cmd: kompose convert -f docker-compose.live.yml -o simple.yml
+      kompose.cmd: kompose convert -f docker-compose.live.yml -o docker-compose.yml
       kompose.version: 1.18.0 (06a2e56)
     creationTimestamp: null
     labels:
