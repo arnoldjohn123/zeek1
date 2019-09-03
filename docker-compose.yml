@@ -107,7 +107,8 @@ items:
             name: special-config
   status: {}
 - apiVersion: v1
-  kind: PersistentVolumeClaim
+  kind: ConfigMap
+  #kind: PersistentVolumeClaim
   metadata:
     creationTimestamp: null
     labels:
@@ -119,6 +120,7 @@ items:
     - ReadWriteOnce
     resources:
       requests:
+        cpu: "100m"
         storage: 100Mi
   status: {}
 - apiVersion: extensions/v1beta1
@@ -196,7 +198,8 @@ items:
             name: special-config
   status: {}
 - apiVersion: v1
-  kind: PersistentVolumeClaim
+  #kind: PersistentVolumeClaim
+  kind: ConfigMap
   metadata:
     creationTimestamp: null
     labels:
@@ -208,6 +211,7 @@ items:
     - ReadWriteOnce
     resources:
       requests:
+        cpu: 100m
         storage: 100Mi
   status: {}
 kind: List
