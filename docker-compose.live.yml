@@ -120,7 +120,7 @@ items:
     - ReadWriteOnce
     resources:
       requests:
-        cpu: "100m"
+        #cpu: "100m"
         storage: 100Mi
   status: {}
 - apiVersion: extensions/v1beta1
@@ -211,7 +211,7 @@ items:
     - ReadWriteOnce
     resources:
       requests:
-        cpu: 100m
+        #cpu: 100m
         storage: 100Mi
   status: {}
 kind: List
