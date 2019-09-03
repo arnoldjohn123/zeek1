@@ -107,8 +107,8 @@ items:
             name: special-config
   status: {}
 - apiVersion: v1
-  kind: ConfigMap
-  #kind: PersistentVolumeClaim
+  #kind: ConfigMap
+  kind: PersistentVolumeClaim
   metadata:
     creationTimestamp: null
     labels:
@@ -198,8 +198,8 @@ items:
             name: special-config
   status: {}
 - apiVersion: v1
-  #kind: PersistentVolumeClaim
-  kind: ConfigMap
+  kind: PersistentVolumeClaim
+  #kind: ConfigMap
   metadata:
     creationTimestamp: null
     labels:
