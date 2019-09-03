@@ -67,20 +67,20 @@ RUN echo "===> Installing corelight/json-streaming-logs package..." \
 RUN echo "===> Shrinking image..." \
   && strip -s /usr/local/bro/bin/bro
 ####################################################################################################
-FROM alpine:3.8 as geoip
+# FROM alpine:3.8 as geoip
 
-ENV MAXMIND_CITY https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz
-ENV MAXMIND_CNTRY https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz
-ENV MAXMIND_ASN http://geolite.maxmind.com/download/geoip/database/GeoLite2-ASN.tar.gz
-ENV GITHUB_CITY https://github.com/blacktop/docker-zeek/raw/master/maxmind/GeoLite2-City.tar.gz
-ENV GITHUB_CNTRY https://github.com/blacktop/docker-zeek/raw/master/maxmind/GeoLite2-Country.tar.gz
+# ENV MAXMIND_CITY https://geolite.maxmind.com/download/geoip/database/GeoLite2-City.tar.gz
+# ENV MAXMIND_CNTRY https://geolite.maxmind.com/download/geoip/database/GeoLite2-Country.tar.gz
+# ENV MAXMIND_ASN http://geolite.maxmind.com/download/geoip/database/GeoLite2-ASN.tar.gz
+# ENV GITHUB_CITY https://github.com/blacktop/docker-zeek/raw/master/maxmind/GeoLite2-City.tar.gz
+# ENV GITHUB_CNTRY https://github.com/blacktop/docker-zeek/raw/master/maxmind/GeoLite2-Country.tar.gz
 
-# # Install the GeoIPLite Database
- RUN cd /tmp \
-   && mkdir -p /usr/share/GeoIP \
-   && wget ${GITHUB_CITY} \
-   && tar xzvf GeoLite2-City.tar.gz \
-   && mv GeoLite2-City*/GeoLite2-City.mmdb /usr/share/GeoIP/
+# # # Install the GeoIPLite Database
+#  RUN cd /tmp \
+#    && mkdir -p /usr/share/GeoIP \
+#    && wget ${GITHUB_CITY} \
+#    && tar xzvf GeoLite2-City.tar.gz \
+#    && mv GeoLite2-City*/GeoLite2-City.mmdb /usr/share/GeoIP/
    # && wget ${MAXMIND_ASN} \
    # && tar xzvf GeoLite2-ASN.tar.gz \
   # && mv GeoLite2-ASN*/GeoLite2-ASN.mmdb /usr/share/GeoIP/
@@ -95,13 +95,13 @@ COPY --from=builder /usr/local/bro /usr/local/bro
 COPY local.bro /usr/local/bro/share/bro/site/local.zeek
 
 # Add a few zeek scripts
-ADD https://raw.githubusercontent.com/blacktop/docker-zeek/master/scripts/conn-add-geodata.bro /usr/local/bro/share/bro/site/geodata/conn-add-geodata.bro
-ADD https://raw.githubusercontent.com/blacktop/docker-zeek/master/scripts/log-passwords.bro /usr/local/bro/share/bro/site/passwords/log-passwords.bro
+# ADD https://raw.githubusercontent.com/blacktop/docker-zeek/master/scripts/conn-add-geodata.bro /usr/local/bro/share/bro/site/geodata/conn-add-geodata.bro
+# ADD https://raw.githubusercontent.com/blacktop/docker-zeek/master/scripts/log-passwords.bro /usr/local/bro/share/bro/site/passwords/log-passwords.bro
 
-ENV BROPATH .:/data/config:/usr/local/bro/share/bro:/usr/local/bro/share/bro/policy:/usr/local/bro/share/bro/site
-ENV PATH $PATH:/usr/local/bro/bin
+# ENV BROPATH .:/data/config:/usr/local/bro/share/bro:/usr/local/bro/share/bro/policy:/usr/local/bro/share/bro/site
+# ENV PATH $PATH:/usr/local/bro/bin
 
-COPY --from=geoip /usr/share/GeoIP /usr/share/GeoIP
+# COPY --from=geoip /usr/share/GeoIP /usr/share/GeoIP
 
 WORKDIR /pcap
 
