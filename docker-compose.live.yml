@@ -90,7 +90,7 @@ items:
           - -e
           image: blacktop/filebeat:7.0.0
           name: filebeat
-          command: [ "/bin/sh","-c", "ls /etc/config/"]
+          command: [ "/bin/sh", "-c" , "ls /etc/config/"]
           #args: ["-c", "sleep 1000 && echo Sleep expired > ls /etc/config/"]
           resources: {}
           volumeMounts:
@@ -177,7 +177,7 @@ items:
           - local
           image: blacktop/zeek:elastic
           name: zeek
-          command: [ "/bin/sh","-c", "ls /etc/config/"]          
+          command: [ "/bin/sh", "-c", "ls /etc/config/"]          
           #args: ["-c", "sleep 1000 && echo Sleep expired > ls /etc/config/"]
           resources: {}
           securityContext:
